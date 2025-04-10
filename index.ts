@@ -1,9 +1,10 @@
 import { app } from "./app";
+import connectDB from "./db/connectdb";
 
+const PORT = process.env.PORT || 3000
 
-
-
-
-app.listen(3000, () => {
-  console.log("Example app listening on port 3001!");
-});
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log("Example app listening on port 3001!");
+  });
+}).catch((error) => console.error(error));
