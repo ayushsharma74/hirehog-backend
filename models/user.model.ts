@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { string } from 'zod';
 
 
 const userSchema = new mongoose.Schema({
@@ -12,14 +13,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  image: String,
   name: String,
-
-  // Tokens from Gmail OAuth
   accessToken: String,
-//   refreshToken: String,
   tokenExpiryDate: Date,
 
-  // Optional: Store classification results
   jobEmails: [
     {
       messageId: String,
@@ -32,10 +30,7 @@ const userSchema = new mongoose.Schema({
     },
   ],
 
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+  
+}, {timestamps: true});
 
 export const User = mongoose.model('User', userSchema);
