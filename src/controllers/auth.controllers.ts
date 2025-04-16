@@ -4,7 +4,7 @@ import { google } from "googleapis";
 import { User } from "../models/user.model";
 import jwt from "jsonwebtoken";
 
-export const googleAuth = async (res: Response) => {
+export const googleAuth = async (_req: Request, res: Response) => {
   const url = oAuth2Client.generateAuthUrl({
     access_type: "offline",
     prompt: "consent",
