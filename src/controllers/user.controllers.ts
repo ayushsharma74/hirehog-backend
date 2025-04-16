@@ -1,7 +1,4 @@
-import axios from "axios";
-import type { Request, Response } from "express";
-import { google } from "googleapis";
-import { oAuth2Client } from "../config/googleClient";
+import { Request, Response } from "express";
 
 
 export const getUser = async (req: Request, res: Response) => {
