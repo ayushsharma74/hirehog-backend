@@ -4,10 +4,18 @@ dotenv.config({
 });
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser"
 
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: "http://localhost:3001",
+        methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+        credentials: true
+    }
+));
+app.use(cookieParser())
 app.use(express.json());
 import authRoutes from "./routes/auth.routes";
 import emailRoutes from "./routes/email.routes";

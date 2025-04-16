@@ -1,8 +1,23 @@
 import mongoose from 'mongoose';
 import { string } from 'zod';
 
+export interface UserSchema {
+  googleId: string;
+  email: string;
+  image: string;
+  name: string;
+  accessToken: string;
+  tokenExpiryDate: Date;
+  jobEmails?: {
+    messageId: string;
+    subject: string;
+    snippet: string;
+    classification: string;
+    receivedAt: Date;
+  }[];
+}
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema<UserSchema>({
   googleId: {
     type: String,
     required: true,

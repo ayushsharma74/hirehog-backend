@@ -17,7 +17,7 @@ def classify():
     top_label = result["labels"][0]
     score = result["scores"][0]
 
-    return jsonify({"label": top_label, "confidence": score})
+    return jsonify({"label": top_label, "confidence": score })
 
 if __name__ == "__main__":
     app.run(port=5000)
