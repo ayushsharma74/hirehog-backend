@@ -61,7 +61,7 @@ export const googleAuthCallback = async (req: Request, res: Response) => {
     res.cookie("token", appToken, {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000, 
-      secure: true, // true in production (with HTTPS)
+      secure: false, // true in production (with HTTPS)
       sameSite: "lax",
     });
 
