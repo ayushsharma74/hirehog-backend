@@ -65,7 +65,7 @@ export const googleAuthCallback = async (req: Request, res: Response) => {
       sameSite: "lax",
     });
 
-    res.redirect(`http://localhost:3001/dashboard`);
+    res.redirect(`http://hirehog.vercel.app/dashboard`);
   } catch (error) {
     console.error("OAuth Callback Error:", error);
     res.status(500).send("Authentication failed");
